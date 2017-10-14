@@ -194,9 +194,8 @@ def init_data(args):
     for i, x_i in zip(I_plus, X_plus) + zip(I_minus, X_minus):
         X[int(i) - 1] = x_i
 
-    # print X
-
     ret = {
+        'class': args.class_letter,
         'X': X,
         'X_plus': X_plus,
         'X_minus': X_minus,
@@ -258,6 +257,7 @@ def sk_init(data, i=0):
 
     # Add to dict
     ret = {
+        'class': data['class'],
         'x_i': x_i1,
         'i': i1,
         'x_j': x_j1,

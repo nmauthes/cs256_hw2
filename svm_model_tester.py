@@ -11,9 +11,6 @@ import pickle
 from sk_train import poly_kernel, rep_data
 
 
-testing_class = 'W'
-
-
 def load_data(args):
     '''
     Loads the trained model, training data and testing data, if they exist.
@@ -58,6 +55,9 @@ def load_data(args):
 
     if not os.path.exists(testing_data_path):
         raise Exception('Testing data folder not found')
+
+    testing_class = model['class']
+    print testing_class
 
     testing_data = []
     I_plus = []
