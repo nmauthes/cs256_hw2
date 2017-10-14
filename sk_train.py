@@ -344,6 +344,11 @@ def adapt(d, p, x_t):
     D = p['D']
     E = p['E']
 
+    X_plus = d['X_plus']
+    X_minus = d['X_minus']
+    I_plus = d['I_plus']
+    I_minus = d['I_minus']
+
     t = x_t['t_ind'] # Index of vector closest to hyperplane
 
     try:
