@@ -194,7 +194,7 @@ def init_data(args):
     for i, x_i in zip(I_plus, X_plus) + zip(I_minus, X_minus):
         X[int(i) - 1] = x_i
 
-    print X
+    # print X
 
     ret = {
         'X': X,
@@ -328,6 +328,7 @@ def should_stop(d, p, epsilon):
     err_msg = 'Attempted negative sqrt for {} ex stop condition check'
     try:
         m_delta = math.sqrt(p['A'] + p['B'] - 2*p['C']) - ret['m_t']
+        # print m_delta
     except ValueError:
         raise Exception(err_msg.format(ret))
 
@@ -491,7 +492,7 @@ def rep_data(img_path):
     img = Image.open(img_path)
     arr = np.array(list(img.getdata()), int)
 
-    return arr/255 # normalize to 1's for white; 0's otherwise
+    return (arr/255 + 1) % 2  # normalize to 1's for white; 0's otherwise
 
 
 ############################################################

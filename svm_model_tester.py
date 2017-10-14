@@ -11,7 +11,8 @@ import pickle
 from sk_train import poly_kernel, rep_data
 
 
-testing_class = 'O'
+testing_class = 'W'
+
 
 def load_data(args):
     '''
@@ -60,7 +61,7 @@ def load_data(args):
 
     testing_data = []
     I_plus = []
-    for f_name in glob.glob(os.path.join(testing_data_path, '*.png')):
+        for f_name in glob.glob(os.path.join(testing_data_path, '*.png')):
         x_test = rep_data(f_name)
         testing_data.append(x_test)
         # to score... jason chee
