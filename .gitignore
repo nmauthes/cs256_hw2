@@ -48,7 +48,9 @@ env.sh
 # Virtual Env #
 # #################
 data/
+data*/
 test/
 trained_model.json
 trained_model.txt
+*_model.txt
 

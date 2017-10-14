@@ -17,6 +17,7 @@ MAX_ROTATION = 180
 
 DRAW_NOISE = True
 
+
 def draw_shape(bg, shape, pos_offset=0, size_offset=0, rotation=0):
     '''
     Draw a Zener Card shape.
@@ -39,6 +40,7 @@ def draw_shape(bg, shape, pos_offset=0, size_offset=0, rotation=0):
 
     bg.paste(0, box=((bg.size[0] - mask.size[0]) / 2 + pos_offset, (bg.size[1] - mask.size[1]) / 2 + pos_offset), mask=mask)
 
+
 def draw_noise(im, density=0.02, iterations=50):
     '''
     Draws noise (ellipsoids) at random points on the image with a given probability.
@@ -59,6 +61,7 @@ def draw_noise(im, density=0.02, iterations=50):
             y2 = y1 + random.randint(1, 3)
 
             draw.ellipse((x1, y1) + (x2, y2), fill=0, outline=0)
+
 
 def generate_zener_cards(args):
     '''

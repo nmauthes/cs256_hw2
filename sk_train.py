@@ -328,7 +328,7 @@ def should_stop(d, p, epsilon):
     err_msg = 'Attempted negative sqrt for {} ex stop condition check'
     try:
         m_delta = math.sqrt(p['A'] + p['B'] - 2*p['C']) - ret['m_t']
-        print m_delta
+        # print m_delta
     except ValueError:
         raise Exception(err_msg.format(ret))
 
@@ -542,6 +542,6 @@ if __name__ == '__main__':
     if serialize_model(params, input_data, args.model_file_name):
         print 'Model saved to {}'.format(args.model_file_name)
 
-    print '\n Final output:  '
+    # print '\n Final output:  '
 
 
