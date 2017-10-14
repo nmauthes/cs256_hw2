@@ -189,7 +189,15 @@ def init_data(args):
     # TODO scaled to lambda
     X_plus, X_minus = scale_inputs(X_plus, X_minus)
 
+    # Build X
+    X = [0. for x in range(len(X_plus) + len(X_minus))]
+    for i, x_i in zip(I_plus, X_plus) + zip(I_minus, X_minus):
+        X[int(i) - 1] = x_i
+
+    print X
+
     ret = {
+        'X': X,
         'X_plus': X_plus,
         'X_minus': X_minus,
         'I_plus': I_plus,
@@ -344,10 +352,7 @@ def adapt(d, p, x_t):
     D = p['D']
     E = p['E']
 
-    X_plus = d['X_plus']
-    X_minus = d['X_minus']
-    I_plus = d['I_plus']
-    I_minus = d['I_minus']
+    X = d['X']
 
     t = x_t['t_ind'] # Index of vector closest to hyperplane
 
@@ -381,7 +386,7 @@ def adapt(d, p, x_t):
 
         # Update D and add back to params dict
         for ind, D_i in D.items():
-            D[ind] = (1 - q)*D_i + q*poly_kernel(x_t['x_t'], x_t['x_t'])
+            D[ind] = (1 - q)*D_i + q*poly_kernel(X[int(ind) - 1], x_t['x_t'])
 
         p['D'] = D
 
@@ -408,7 +413,7 @@ def adapt(d, p, x_t):
 
         # Update E
         for ind, E_i in E.items():
-            E[ind] = (1 - q)*E_i + q*poly_kernel(x_t['x_t'], x_t['x_t'])
+            E[ind] = (1 - q)*E_i + q*poly_kernel(X[int(ind) - 1], x_t['x_t'])
 
         p['E'] = E
 
