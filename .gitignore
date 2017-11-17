@@ -42,13 +42,16 @@ tmtagsHistory
 
 # Virtual Env #
 # #################
-venv/
-env.sh
+*venv/
+*env.sh
 
-# Virtual Env #
+# Project folders & files #
 # #################
 data/
 test/
-trained_model.json
 trained_model.txt
+
+# Dev-specific settings #
+# #################
+.vscode/
 
